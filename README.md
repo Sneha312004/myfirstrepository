@@ -1,1 +1,14 @@
-# myfirstrepository
+- name: Basic Setup Example
+- hosts: all
+- become: yes
+- tasks:
+- - name: Install Nginx
+  - apt:
+  - name: nginx
+  - state: present
+  - update_cache: yes
+  - - name: Ensure Nginx is running
+    - service:
+    - name: nginx
+    - state: started
+    - enabled: yes
